@@ -4,15 +4,15 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit14af0ddfbc16c4126602920a26b812c3
+class ComposerStaticInit9c12fec4b6151122c0ac4f5652ab47b7
 {
     public static $files = array (
-        'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
+        'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
+        '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
-        '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
     );
 
@@ -54,8 +54,8 @@ class ComposerStaticInit14af0ddfbc16c4126602920a26b812c3
         'phpDocumentor\\Reflection\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
-            1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
-            2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+            1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+            2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
         ),
         'Webmozart\\Assert\\' => 
         array (
@@ -71,8 +71,8 @@ class ComposerStaticInit14af0ddfbc16c4126602920a26b812c3
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-factory/src',
-            1 => __DIR__ . '/..' . '/psr/http-message/src',
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+            1 => __DIR__ . '/..' . '/psr/http-factory/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -740,9 +740,9 @@ class ComposerStaticInit14af0ddfbc16c4126602920a26b812c3
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit14af0ddfbc16c4126602920a26b812c3::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit14af0ddfbc16c4126602920a26b812c3::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit14af0ddfbc16c4126602920a26b812c3::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit9c12fec4b6151122c0ac4f5652ab47b7::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit9c12fec4b6151122c0ac4f5652ab47b7::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit9c12fec4b6151122c0ac4f5652ab47b7::$classMap;
 
         }, null, ClassLoader::class);
     }
