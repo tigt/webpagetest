@@ -92,22 +92,12 @@ $page_description = "Website performance test result$testLabel.";
                 </div>
                 <div class="testinfo_forms">
                 <?php
-                    if( !$headless && gz_is_file("$testPath/testinfo.json")
+                    if (
+                        !$headless && gz_is_file("$testPath/testinfo.json")
                         && !array_key_exists('published', $test['testinfo'])
                         && ($isOwner || !$test['testinfo']['sensitive'])
-                        && (!isset($test['testinfo']['type']) || !strlen($test['testinfo']['type'])) )
-                    {
-                        $siteKey = GetSetting("recaptcha_site_key", "");
-                        if (!isset($uid) && !isset($user) && !isset($USER_EMAIL) && strlen($siteKey)) {
-                          echo "<script src=\"https://www.google.com/recaptcha/api.js\" async defer></script>\n";
-                          ?>
-                          <script>
-                          function onRecaptchaSubmit(token) {
-                            document.getElementById("urlEntry").submit();
-                          }
-                          </script>
-                          <?php
-                        }
+                        && (!isset($test['testinfo']['type']) || !strlen($test['testinfo']['type']))
+                    ) {
                         // load the secret key (if there is one)
                         $secret = GetServerSecret();
                         if (!isset($secret))
@@ -144,11 +134,7 @@ $page_description = "Website performance test result$testLabel.";
                           EOT;
                         }
 
-                        if (strlen($siteKey)) {
-                          echo "<button data-sitekey=\"$siteKey\" data-callback='onRecaptchaSubmit' class=\"g-recaptcha\">Re-run the test</button>";
-                        } else {
                           echo '<input type="submit" value="Re-run the test">';
-                        }
                         echo "\n</form>\n";
                     }
                     ?>

@@ -38,22 +38,6 @@ if (file_exists('./settings/server/lighthouse.ini')) {
     </head>
     <body class="home">
             <?php
-            $siteKey = GetSetting("recaptcha_site_key", "");
-            if (!isset($uid) && !isset($user) && !isset($USER_EMAIL) && strlen($siteKey)) {
-              echo "<script src=\"https://www.google.com/recaptcha/api.js\" async defer></script>\n";
-              ?>
-              <script>
-              function onRecaptchaSubmit(token) {
-                var form = document.getElementById("urlEntry");
-                if (ValidateInput(form)) {
-                  form.submit();
-                } else {
-                  grecaptcha.reset();
-                }
-              }
-              </script>
-              <?php
-            }
             include 'header.inc';
             if (!$headless) {
             ?>
@@ -88,13 +72,8 @@ if (file_exists('./settings/server/lighthouse.ini')) {
 
                     <ul class="input_fields">
                         <li><input type="text" name="url" id="url" value="<?php echo $url; ?>" class="text large" onfocus="if (this.value == this.defaultValue) {this.value = '';}" onblur="if (this.value == '') {this.value = this.defaultValue;}" onkeypress="if (event.keyCode == 32) {return false;}">
-                        <?php
-                if (strlen($siteKey)) {
-                  echo "<button data-sitekey=\"$siteKey\" data-callback='onRecaptchaSubmit' class=\"g-recaptcha start_test\">Start Test &#8594;</button>";
-                } else {
-                  echo '<input type="submit" name="submit" value="Start Test &#8594;" class="start_test">';
-                }
-                ?></li>
+                            <input type="submit" name="submit" value="Start Test &#8594;" class="start_test">
+                        </li>
                         <li>
                             <label for="location">Test Location:</label>
                             <select name="location" id="location" onchange="profileChanged()">

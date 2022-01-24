@@ -80,23 +80,6 @@ $loc = ParseLocations($locations);
         <h1 class="attention">Test. Optimize. Repeat.</h1>
         
         <?php
-            $siteKey = GetSetting("recaptcha_site_key", "");
-            if (!isset($uid) && !isset($user) && !isset($USER_EMAIL) && strlen($siteKey)) {
-              echo "<script src=\"https://www.google.com/recaptcha/api.js\" async defer></script>\n";
-              ?>
-              <script>
-              function onRecaptchaSubmit(token) {
-                var form = document.getElementById("urlEntry");
-                if (ValidateInput(form)) {
-                  form.submit();
-                } else {
-                  grecaptcha.reset();
-                }
-              }
-              </script>
-              <?php
-            }
-
             if (!$headless) {
             ?>
             <form name="urlEntry" id="urlEntry" action="/runtest.php" method="POST" enctype="multipart/form-data" onsubmit="return ValidateInput(this)">
@@ -209,13 +192,7 @@ $loc = ParseLocations($locations);
                                 echo "<input type='text' name='url' id='url' inputmode='url' placeholder='$placeholder' class='text large' autocorrect='off' autocapitalize='off' onkeypress='if (event.keyCode == 32) {return false;}'>";
                             }
                             ?>
-                        <?php
-                            if (strlen($siteKey)) {
-                            echo "<button data-sitekey=\"$siteKey\" data-callback=\"onRecaptchaSubmit\" class=\"g-recaptcha start_test\">Start Test &#8594;</button>";
-                            } else {
-                            echo '<input type="submit" name="submit" value="Start Test &#8594;" class="start_test">';
-                            }
-                            ?>
+                            <input type="submit" name="submit" value="Start Test &#8594;" class="start_test">
                     </li>
                         <li>
                             <label for="location">Test Location</label>
